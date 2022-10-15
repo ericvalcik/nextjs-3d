@@ -13,16 +13,19 @@ export default function Home() {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <div className={css.scene} onClick={() => {
-      if (playing) {
-        pause();
-        setPlaying(false);
-      } else {
-        play();
-        setPlaying(true);
-      }
-    }}>
-      <div style={{ cursor: "pointer", position: 'absolute', top: 0, left: 0, width: '100%', textAlign: "center", color: 'white', zIndex: 5 }}>
+    <div className={css.scene}>
+      <div
+        style={{ cursor: "pointer", position: 'absolute', top: 0, left: 0, width: '100%', textAlign: "center", color: 'white', zIndex: 5 }}
+        onClick={() => {
+          if (playing) {
+            pause();
+            setPlaying(false);
+          } else {
+            play();
+            setPlaying(true);
+          }
+        }}
+      >
         {playing ? "Stop" : "Play"}
       </div>
       <Canvas
