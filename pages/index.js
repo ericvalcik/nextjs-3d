@@ -4,8 +4,13 @@ import Floor from "../components/Floor";
 import Box from "../components/Box";
 import Lightbulb from "../components/Lightbulb";
 import OrbitControls from "../components/OrbitControls";
+import MySound from '../assets/bg_theme.mp3';
+import useSound from 'use-sound';
 
 export default function Home() {
+  const [play, { stop, pause }] = useSound(MySound);
+  play();
+
   return (
     <div className={css.scene}>
       <Canvas
