@@ -6,7 +6,7 @@ import useSound from 'use-sound';
 import { useState } from "react";
 import Model from "../components/Model";
 import Floor from "../components/Floor";
-import {Box} from "@react-three/drei";
+import {AccumulativeShadows, Box, RandomizedLight} from "@react-three/drei";
 
 export default function Home() {
   const [play, { stop, pause }] = useSound(MySound);
@@ -36,18 +36,14 @@ export default function Home() {
           fov: 50,
         }}
       >
-        <fog attach="fog" args={["white", 0, 60]} />
-        {/*<ambientLight intensity={0.05} />*/}
-        <directionalLight
-          castShadow
-          intensity={0.5}
-          position={[-3,1,3]}
-        />
+        <ambientLight intensity={0.5} />
+        <AccumulativeShadows temporal frames={100} color="white" colorBlend={1} toneMapped={true} alphaTest={0.8} opacity={2} scale={12} position={[0, 0, 0]}>
+          <RandomizedLight amount={8} radius={4} ambient={0.5} intensity={1} position={[-3,1,3]} bias={0.001} />
+        </AccumulativeShadows>
         <Model />
-        <Box castShadow receiveShadow position={[4, 0.5, -4]}>
+        <Box castShadow receiveShadow position={[-3, 0.5, 1]}>
           <meshStandardMaterial attach="material" color="white" />
         </Box>
-        <Floor />
         <OrbitControls />
       </Canvas>
     </div>
