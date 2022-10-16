@@ -1,9 +1,8 @@
 import { Suspense } from 'react';
 import css from "../styles/Home.module.css";
 import { Canvas } from "@react-three/fiber";
-import OrbitControls from "../components/OrbitControls";
 import Model from "../components/Model";
-import {AccumulativeShadows, Box, Html, RandomizedLight, useProgress} from "@react-three/drei";
+import {AccumulativeShadows, Box, Html, OrbitControls, RandomizedLight, useProgress} from "@react-three/drei";
 
 function Loader() {
   const { active, progress, errors, item, loaded, total } = useProgress()
