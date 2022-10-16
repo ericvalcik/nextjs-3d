@@ -24,7 +24,7 @@ export default function Home() {
       >
         <Suspense fallback={<Loader />}>
           <ambientLight intensity={0.5} />
-          <AccumulativeShadows temporal frames={100} color="white" colorBlend={1} toneMapped={true} alphaTest={0.8} opacity={2} scale={12} position={[0, 0, 0]}>
+          <AccumulativeShadows temporal frames={100} color="white" colorBlend={1} toneMapped={true} alphaTest={0.7} opacity={2} scale={12} position={[0, 0, 0]}>
             <RandomizedLight amount={8} radius={4} ambient={0.5} intensity={1} position={[-3,1,3]} bias={0.001} />
           </AccumulativeShadows>
           <Model />
